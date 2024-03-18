@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            *{
+                padding: 0;
+                margin: 0;
+            }
+            body{
+                background-image: url("{{url_for('static',filename = 'fakenews.jpg')}}");
+            }
+            h1{
+                text-align: center;
+                color: white;
+            }
+            .content{
+                width:38%;
+                margin: 0 auto;
+            }
+            form h2{
+                font-family: Arial;
+                font-size: 18px;
+            }
+            textarea{
+                font-size: 18px;
+                padding: 2px;
+                background:transparent;
+                border: 2px solid black;
+            }
+            form{
+                background-color: Lavender;
+                width: 525px;
+                height: 195px;
+            }
+            button{
+                width: 80px;
+                height: 22px;
+                font-size: 18px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>FAKE NEWS DETECTOR</h1>
+        <br> <br>
+        <div class="content">
+            <form action = '/detect' method='POST'>
+                <h2>Type the news title here...</h2>
+                    <textarea rows = 5 cols = 50 name = 'title'></textarea>
+                    <br>
+                    <button type = 'submit'>Detect</button><br>
+                    <h2>{{predict_message}}</h2>
+            </form>
+        </div>
+    </body>
+</html>
